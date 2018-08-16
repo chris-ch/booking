@@ -7,9 +7,14 @@ export class Resource {
     name: string;
     reservations: IntervalTree = new IntervalTree();
 
-    constructor() { }
+    constructor(name: string = '') {
+        this.name = name;
+     }
 
     addReservation(startDate: Date, endDate: Date): boolean {
+        if (startDate.getTime() === endDate.getTime()) {
+            return false;
+        }
         const lowerBound: Date = (startDate < endDate) ? startDate : endDate;
         const upperBound: Date = (startDate < endDate) ? endDate : startDate;
         const hits = this.reservations.search(lowerBound.getTime(), upperBound.getTime());
@@ -27,6 +32,10 @@ export class Resource {
         } else {
             return false;
         }
+    }
+
+    listReservations(startDate: Date, endDate: Date): Interval[] {
+        return this.reservations.search(startDate.getTime(), endDate.getTime());
     }
 }
 
