@@ -1,23 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule } from 'angular-calendar';
+import { AppComponent } from './app.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 import { FormsModule } from '@angular/forms';
-import { AppComponent } from './app.component';
-import { ResourceComponent } from './resource/resource.component';
+
+import { ResourceDetailComponent } from './resource-detail/resource-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ResourceComponent,
+    ResourcesComponent,
+    ResourceDetailComponent,
+    MessagesComponent,
     DashboardComponent
   ],
   imports: [
@@ -31,9 +37,11 @@ import { InMemoryDataService } from './in-memory-data.service';
     ),
 
     BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+
     BrowserAnimationsModule,
-    CalendarModule.forRoot(),
-    AppRoutingModule
+    CalendarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

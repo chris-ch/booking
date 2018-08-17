@@ -1,0 +1,13 @@
+<div *ngIf="resource">
+
+  <h2>{{resource.name | uppercase}} Details</h2>
+  <div><span>code: </span>{{resource.code}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="resource.name" placeholder="name" />
+    </label>
+  </div>
+
+</div>
+<button type="button" class="btn btn-primary" (click)="save()">save</button>
+<button type="button" class="btn btn-primary" (click)="goBack()">go back</button>

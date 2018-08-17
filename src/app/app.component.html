@@ -1,4 +1,10 @@
 <div class="page-header">
   <h1>{{title}}</h1>
 </div>
+
+<ul class="nav nav-pills">
+  <li role="presentation"><a routerLink="/dashboard">Dashboard</a></li>
+  <li role="presentation"><a routerLink="/resources">Resources</a></li>
+</ul>
 <router-outlet></router-outlet>
+<app-messages></app-messages>

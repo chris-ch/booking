@@ -4,11 +4,15 @@ import { IntervalTree, Interval } from './interval-tree';
  * Essentially a list of non-overlapping, chronologically ordered periods.
  */
 export class Resource {
+    id: number;
+    code: string;
     name: string;
     reservations: IntervalTree = new IntervalTree();
 
-    constructor(name: string = '') {
+    constructor(id: number, code: string, name: string = '') {
+        this.id = id;
         this.name = name;
+        this.code = code;
      }
 
     addReservation(startDate: Date, endDate: Date): boolean {

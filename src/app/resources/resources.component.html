@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>My Resources</h2>
+  <ul class="list-group">
+    <li *ngFor="let resource of resources" class="list-group-item">
+      <a routerLink="/detail/{{resource.code}}"><span class="badge">{{resource.code}}</span> {{resource.name}}</a>
+      <span class="badge"><i class="fa fa-times" title="delete resource" (click)="delete(resource)"></i></span>
+    </li>
+  </ul>
+
+  <div class="form-row">
+    <label for="resourceName">Resource name</label>
+    <input type="text" class="form-control" id="resourceName" #resourceName />
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="btn btn-primary" (click)="add(resourceName.value); resourceName.value=''">
+      add
+    </button>
+  </div>
+
+</div>

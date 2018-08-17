@@ -1,3 +1,10 @@
-<p>
-  dashboard works!
-</p>
+<h3>My resources</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let resource of resources"
+    class="col-1-4"
+    routerLink="/detail/{{resource.code}}">
+    <div class="module resource">
+      <h4>{{resource.name}}</h4>
+    </div>
+  </a>
+</div>
